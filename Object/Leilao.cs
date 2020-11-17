@@ -25,16 +25,20 @@ namespace Object
 
             return
                 Artigo == outroLeilao.Artigo &&
-                Lance == outroLeilao.Lance
+                Lance == outroLeilao.Lance;
 
         }
-        public bool ComparaLance(string nome, string artigo, double lance)
+        public string ComparaLance(string nome, string artigo, double lance)
         {
             Leilao outroLeilao = new Leilao(nome, artigo, lance);
 
-            if (this.Equals(outroLeilao))
+            if (this.Equals(outroLeilao) && (this.Nome == outroLeilao.Nome))
             {
-
+                return "Ja conta um lance desta pessoa neste leilao!";
+            }
+            else
+            {
+                return "Lance existente!";
             }
         }
 
